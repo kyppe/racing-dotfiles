@@ -1,0 +1,10 @@
+{
+  "overview": {
+    "previewMode": "event",
+    "includeInactiveMonitorPreviews": false,
+    "previewRecaptureDelayMs": 60
+  },
+  "hacks": {
+    "hyprlandEventDebounceMs": 80
+  }
+}

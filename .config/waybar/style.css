@@ -1,0 +1,131 @@
+@define-color bg-color rgba(20, 20, 20, 0.9);
+
+/* General */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", monospace;
+    font-size: 10px;
+    min-height: 0;
+}
+
+window#waybar {
+    min-height: 10px;
+    background-color: @bg-color;
+    color: #ffffff;
+}
+
+/* MODULES */
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: @bg-color;
+    border-radius: 10px;
+    margin: 2px 0 1px 0;
+}
+
+/* Module spacing */
+#cpu,
+#memory,
+#custom-gpu,
+#clock,
+#pulseaudio,
+#mpris,
+#custom-power,
+#custom-wifi,
+#temperature {
+    padding: 0 10px;
+    margin: 0 2px;
+}
+
+/* Wifi */
+#custom-wifi.disconnected {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Power */
+#custom-power {
+    color: #ffffff;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+/* MPRIS */
+#mpris {
+    min-width: 0;
+}
+
+/* Clock */
+#clock {
+    font-weight: bold;
+}
+
+/* Temperature */
+#temperature.critical {
+    color: #ff5555;
+}
+
+/* Workspace pills */
+.ws-pill {
+    padding: 3px 12px;
+    margin: 3px 4px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.ws-pill:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+}
+
+.ws-pill.occupied {
+    background-color: rgba(255, 255, 255, 0.09);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.ws-pill.active {
+    background-color: #89b4fa;
+    color: #101014;
+}
+
+.ws-pill.active:hover {
+    background-color: #a6c8ff;
+}
+
+/* Tooltip */
+tooltip {
+    background-color: @bg-color;
+    color: #ffffff;
+    font-weight: bold;
+    border: 0px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #ffffff;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Interactive hover effect */
+#cpu,
+#memory,
+#custom-gpu,
+#temperature,
+#clock,
+#pulseaudio,
+#mpris,
+#custom-wifi {
+    transition: font-size 0.15s ease;
+}
+
+#cpu:hover,
+#memory:hover,
+#custom-gpu:hover,
+#temperature:hover,
+#clock:hover,
+#pulseaudio:hover,
+#mpris:hover,
+#custom-wifi:hover {
+    font-size: 13px;
+}
