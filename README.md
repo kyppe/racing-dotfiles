@@ -38,3 +38,13 @@ kitty, hyprlock, hyprpaper, grim, slurp, wl-clipboard, hyprpicker, etc.) plus `n
 
 Not covered: your actual wallpaper file(s), SDDM theme, and anything outside `~/.config`
 (shell login setup, systemd/uwsm units, etc.).
+
+## Values you'll likely want to change
+
+This repo carries my personal settings as the working example — edit these for your own setup:
+
+- `.config/hypr/monitors.conf` / `monitors.lua` — pinned to my exact monitor models via
+  `nwg-displays`. Regenerate with `nwg-displays` for your own hardware, or delete and let
+  Hyprland auto-detect.
+- `.config/noctalia/settings.json` — `avatarImage` and the wallpaper `directory` point at
+  `/home/kyppe/...`. Update to your own paths.
