@@ -1,6 +1,7 @@
 # racing-dotfiles
 
-Personal Hyprland rice, built on top of an [ML4W](https://github.com/mylinuxforwork/dotfiles) install (CachyOS).
+Personal Hyprland rice, built on CachyOS's `cachyos-hypr-noctalia` edition (with some
+ML4W-derived pieces layered in: fish, walker, swaync, matugen).
 
 ## Contents
 
@@ -18,15 +19,22 @@ Personal Hyprland rice, built on top of an [ML4W](https://github.com/mylinuxforw
 | `matugen` | Material You theming/colors |
 | `wlogout` | Logout menu |
 
-## Install on a new machine
+## Install on a new machine (Arch/CachyOS)
 
 ```sh
 git clone git@github.com:kyppe/racing-dotfiles.git ~/racing-dotfiles
-~/racing-dotfiles/install.sh
+cd ~/racing-dotfiles
+./bootstrap.sh   # installs required packages via pacman + AUR (asks before each step)
+./install.sh     # symlinks .config/<app> into ~/.config/<app>
 ```
 
-This symlinks each `.config/<app>` dir into `~/.config/<app>`, backing up anything already there
-to `~/.config-backup-<timestamp>`.
+`install.sh` backs up anything already at `~/.config/<app>` to `~/.config-backup-<timestamp>`
+before symlinking.
 
-Assumes an Arch/CachyOS + Hyprland base with the matching packages installed
-(hyprland, waybar, rofi, walker, kitty, fish, quickshell, swaync, matugen).
+`bootstrap.sh` installs `cachyos-hypr-noctalia` (pulls in hyprland, noctalia, waybar, matugen,
+kitty, hyprlock, hyprpaper, grim, slurp, wl-clipboard, hyprpicker, etc.) plus `nvtop`, `jq`,
+`cliphist`, `wf-recorder`, `tesseract` via pacman, and `quickshell-overview-git` +
+`python-pywalfox` via an AUR helper (yay/paru). It never runs `sudo` without asking first.
+
+Not covered: your actual wallpaper file(s), SDDM theme, and anything outside `~/.config`
+(shell login setup, systemd/uwsm units, etc.).
