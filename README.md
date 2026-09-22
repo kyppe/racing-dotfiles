@@ -29,7 +29,8 @@ cd ~/racing-dotfiles
 ```
 
 `install.sh` backs up anything already at `~/.config/<app>` to `~/.config-backup-<timestamp>`
-before symlinking.
+before symlinking, then rewrites any `/home/kyppe/...` path baked into the configs to your own
+`$HOME` automatically — no manual path editing needed.
 
 `bootstrap.sh` installs `cachyos-hypr-noctalia` (pulls in hyprland, noctalia, waybar, matugen,
 kitty, hyprlock, hyprpaper, grim, slurp, wl-clipboard, hyprpicker, etc.) plus `nvtop`, `jq`,
@@ -41,10 +42,10 @@ Not covered: your actual wallpaper file(s), SDDM theme, and anything outside `~/
 
 ## Values you'll likely want to change
 
-This repo carries my personal settings as the working example — edit these for your own setup:
+`install.sh` auto-fixes any hardcoded `/home/kyppe` path (e.g. in `noctalia/settings.json`'s
+`avatarImage` and wallpaper `directory`) to your own home directory. One thing it can't fix
+for you:
 
 - `.config/hypr/monitors.conf` / `monitors.lua` — pinned to my exact monitor models via
   `nwg-displays`. Regenerate with `nwg-displays` for your own hardware, or delete and let
   Hyprland auto-detect.
-- `.config/noctalia/settings.json` — `avatarImage` and the wallpaper `directory` point at
-  `/home/kyppe/...`. Update to your own paths.
